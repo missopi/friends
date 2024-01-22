@@ -25,7 +25,7 @@ class FriendsController < ApplicationController
 
     respond_to do |format|
       if @friend.save
-        format.html { redirect_to friend_url(@friend), notice: "Friend was successfully created." }
+        format.html { redirect_to friend_url(@friend), notice: 'Friend was successfully created.' }
         format.json { render :show, status: :created, location: @friend }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class FriendsController < ApplicationController
   def update
     respond_to do |format|
       if @friend.update(friend_params)
-        format.html { redirect_to friend_url(@friend), notice: "Friend was successfully updated." }
+        format.html { redirect_to friend_url(@friend), notice: 'Friend was successfully updated.' }
         format.json { render :show, status: :ok, location: @friend }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class FriendsController < ApplicationController
     @friend.destroy!
 
     respond_to do |format|
-      format.html { redirect_to friends_url, notice: "Friend was successfully destroyed." }
+      format.html { redirect_to friends_url, notice: 'Friend was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_friend
-      @friend = Friend.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def friend_params
-      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_friend
+    @friend = Friend.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def friend_params
+    params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter)
+  end
 end
