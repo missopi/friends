@@ -14,16 +14,10 @@
       <% @friends.each do |friend| %>
         <% if friend.user == current_user %>
         <tr>
-          <td> 
-            <%= friend.first_name %> 
-            <%= friend.last_name %>
-          </td>
+          <td> <%= link_to friend.first_name + ' ' + friend.last_name, friend %> </td>
           <td> <%= friend.email %> </td>
           <td> <%= friend.phone %> </td>
           <td> <%= friend.twitter %> </td>
-          <td>
-            <%= link_to "Show", friend %>
-          </td>
           <td>
             <%= link_to "Edit", edit_friend_path(friend) %>
           </td>
