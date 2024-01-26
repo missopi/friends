@@ -13,23 +13,24 @@
 
   <tbody>
     <% @friends.each do |friend| %>
-    <tr>
-      <td> <%= friend.first_name %> </td>
-      <td> <%= friend.last_name %> </td>
-      <td> <%= friend.email %> </td>
-      <td> <%= friend.phone %> </td>
-      <td> <%= friend.twitter %> </td>
-      <td> <%= friend.user_id %> </td>
-      <td>
-        <%= link_to "Show", friend %>
-      </td>
-      <td>
-        <%= link_to "Edit", edit_friend_path(friend) %>
-      </td>
-      <td>
-        <%= link_to "Delete", friend, data: { turbo_method: :delete } %>
-      </td>
-    </tr>
+      <% if friend.user == current_user %>
+      <tr>
+        <td> <%= friend.first_name %> </td>
+        <td> <%= friend.last_name %> </td>
+        <td> <%= friend.email %> </td>
+        <td> <%= friend.phone %> </td>
+        <td> <%= friend.twitter %> </td>
+        <td>
+          <%= link_to "Show", friend %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_friend_path(friend) %>
+        </td>
+        <td>
+          <%= link_to "Delete", friend, data: { turbo_method: :delete } %>
+        </td>
+      </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
