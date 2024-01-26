@@ -2,8 +2,7 @@
   <table class="table table-striped table-bordered table-hover" >
     <thead class="thead-dark">
       <tr>
-        <th>First name</th>
-        <th>Last name</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Twitter</th>
@@ -15,8 +14,10 @@
       <% @friends.each do |friend| %>
         <% if friend.user == current_user %>
         <tr>
-          <td> <%= friend.first_name %> </td>
-          <td> <%= friend.last_name %> </td>
+          <td> 
+            <%= friend.first_name %> 
+            <%= friend.last_name %>
+          </td>
           <td> <%= friend.email %> </td>
           <td> <%= friend.phone %> </td>
           <td> <%= friend.twitter %> </td>
